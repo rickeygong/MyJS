@@ -1,2 +1,2 @@
 # MyJS
-学习JS的笔记
+learn js code
