@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>操作元素之修改元素</title>
+    <style>
+      img {
+        width: 300px;
+        /* height: 300px; */
+      }
+    </style>
+  </head>
+  <body>
+    <button id="ldh">刘德华</button>
+    <button id="zxy">张学友</button>
+    <img src="images/ldh.jpg" alt="刘德华" />
+  </body>
+  <script>
+    // 修改元素属性  src
+    // 1. 获取元素
+    var ldh = document.querySelector("#ldh");
+    var zxy = document.querySelector("#zxy");
+    var img = document.querySelector("img");
+    // 2. 注册事件  处理程序
+    zxy.onclick = function () {
+      // 点击后发生变化
+      img.src = "images/zxy.jpg";
+      img.title = "张学友";
+    };
+
+    ldh.onclick = function () {
+      // 点击后发生变化
+      img.src = "images/ldh.jpg";
+      img.title = "刘德华";
+    };
+  </script>
+</html>
