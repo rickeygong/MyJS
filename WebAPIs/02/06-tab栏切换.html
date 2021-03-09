@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>tab切换</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+      }
+
+      li {
+        list-style-type: none;
+      }
+      .tab {
+        width: 1000px;
+        margin: 100px auto;
+      }
+
+      .tab_list {
+        height: 39px;
+        border: 1px solid #ccc;
+        background-color: #f1f1f1;
+      }
+      .tab_list li {
+        float: left;
+        height: 39px;
+        line-height: 39px;
+        padding: 0 20px;
+        text-align: center;
+        cursor: pointer;
+      }
+      .tab_list .current {
+        background-color: #c81623;
+        color: #fff;
+      }
+
+      .item_info {
+        padding: 20px 0 0 20px;
+      }
+      .item {
+        display: none;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="tab">
+      <!-- tab_list -->
+      <div class="tab_list">
+        <ul>
+          <li class="current">AAAAAA</li>
+          <li>BBBBBB</li>
+          <li>CCCCCC</li>
+          <li>DDDDDD</li>
+          <li>EEEEEE</li>
+        </ul>
+      </div>
+
+      <!-- tab_con -->
+      <div class="tab_con">
+        <div class="item" style="display: block">aaaaaa</div>
+        <div class="item">bbbbbb</div>
+        <div class="item">cccccc</div>
+        <div class="item">dddddd</div>
+        <div class="item">eeeeee</div>
+      </div>
+    </div>
+  </body>
+  <script>
+    var tab_list = document.querySelector(".tab_list");
+    var lis = tab_list.querySelectorAll("li");
+    var items = document.querySelectorAll(".item");
+    // for循环绑定点击事件
+    for (var i = 0; i < lis.length; i++) {
+      lis[i].setAttribute("index", i);
+      lis[i].onclick = function () {
+        // 1. 上的模块选项卡，点击某一个，当前这一个底色会是红色，其余不变（排他思想） 修改类名的方式
+        for (var i = 0; i < lis.length; i++) {
+          lis[i].className = "";
+        }
+        this.className = "current";
+
+        var index = this.getAttribute("index");
+        console.log(index);
+        for (var i = 0; i < items.length; i++) {
+          items[i].style.display = "none";
+        }
+        items[index].style.display = "block";
+      };
+    }
+  </script>
+</html>
