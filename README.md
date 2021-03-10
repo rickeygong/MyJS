@@ -1,4 +1,4 @@
-# MyJS
+# learn js
 
 learn js code
 
